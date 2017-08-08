@@ -2,6 +2,7 @@
     name = Romain RENAUD
     email = devwebpeanuts@gmail.com
 [alias]
+    pl = pull
     a = add -p
     st = status -sb
     ci = commit
