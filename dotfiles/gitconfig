@@ -6,6 +6,8 @@
     a = add -p
     st = status -sb
     ci = commit
+    amend = commit --amend --no-edit
+    amendit = commit --amend
     co = checkout
     br = branch
     dc  = diff --cached
