@@ -43,3 +43,8 @@ dex() {
 
     docker exec -ti "${CONTAINER_NAME}" ${COMMAND}
 }
+
+drmiByTag() {
+    docker rmi $(docker images | grep $1 | tr -s ' ' | cut -d ' ' -f 3)
+}
+
