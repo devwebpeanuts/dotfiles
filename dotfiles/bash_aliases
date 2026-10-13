@@ -30,4 +30,10 @@ alias git='LANG=en_US.UTF-8 git'
 alias docker-stop-all='docker stop $(docker ps -a -q)'
 alias docker-clean-containers='docker rm -fv $(docker ps -a -q -f status=exited)'
 alias docker-clean-untagged-images='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
-alias docker-yolo='docker rm -fv $(docker ps -aq)'
+alias docker-yolo="test -z '$(docker ps -aq)' || docker rm -fv $(docker ps -aq)"
+alias docker-clean="docker-yolo; echo '-- containers cleaned';  docker volume prune -f; echo '-- volume cleaned'; docker system prune -f; echo '--system cleaned'; echo '------- Docker cleaned --------'"
+
+if [ -f ~/.bash_aliases_mnessh ]; then
+    . ~/.bash_aliases_mnessh
+fi
+
