@@ -37,3 +37,4 @@ if [ -f ~/.bash_aliases_mnessh ]; then
     . ~/.bash_aliases_mnessh
 fi
 
+alias hot='paste <(cat /sys/class/thermal/thermal_zone*/type) <(cat /sys/class/thermal/thermal_zone*/temp) | column -s $'\''\t'\'' -t | sed '\''s/\(.\)..$/.\1°C/'\'
